@@ -1,0 +1,15 @@
+FROM node:alpine
+
+WORKDIR /app
+COPY package.json .
+RUN yarn install
+
+COPY . .
+
+CMD ["yarn", "start"]
+
+#docker run -it -p 3000:3000 CONTAINER_ID
+
+#web:
+#    stdin_open: true
+#Make sure you rebuild your containers after making this change with  docker-compose down && docker-compose up --build
